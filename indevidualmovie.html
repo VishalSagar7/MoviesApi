@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div id="movieDetails"></div>
+    </div>
+
+    <script>
+        async function getMovieDetails(imdbID) { 
+            const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=89c3c3f7`);
+            const data = await response.json();
+            return data;
+        }
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const imdbID = getQueryParam('imdbID');
+
+            if (imdbID) {
+                try {
+                    const movieData = await getMovieDetails(imdbID);
+                    const movieDetailsContainer = document.getElementById('movieDetails');
+
+                    if (movieData.Response === 'True') {
+                        movieDetailsContainer.innerHTML = `
+                            <div class="first-child">
+                                <img src="${movieData.Poster}" alt="${movieData.Title} poster"/>
+                            </div>
+                            <div class="movie-details-div">
+                                <h1>${movieData.Title}</h1>
+                                <h3>IMDB Rating : <span>${movieData.imdbRating}</span></h3>
+                                <h3>Runtime : <span>${movieData.Runtime}</span></h3>
+                                <p><strong>Plot : </strong>${movieData.Plot}</p>
+                                <h3>Released : <span>${movieData.Released}</span></h3>
+                                <h2 class="actors"><span>Actors : ${movieData.Actors}</span></h2>
+                                <h2>Director : <span>${movieData.Director}</span></h2>
+                                <h2>Writer : <span>${movieData.Writer}</span></h2>
+                                <h3 class="language">Available in <span>${movieData.Language}</span></h3>
+                                <h3>Country : <span>${movieData.Country}</span></h3>
+                                <h3>Genre : <span>${movieData.Genre}</span></h3>
+                            </div>
+                        `;
+                    } else {
+                        movieDetailsContainer.innerHTML = '<p>Movie details not found.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching movie details:', error);
+                    movieDetailsContainer.innerHTML = '<p>Error fetching movie details. Please try again later.</p>';
+                }
+            } else {
+                document.getElementById('movieDetails').innerHTML = '<p>No IMDb ID provided.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

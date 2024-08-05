@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(231, 187, 231);
+}
+
+#header{
+    height: 90px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(185, 164, 204);
+}
+#header input{
+    height: 30px;
+    padding-left: 10px;
+    width:250px;
+    font-size: 20px;
+    outline: none;
+}
+#header input:focus{
+    outline: 2px solid violet;
+}
+#header input::placeholder{
+    font-size: 15px;
+}
+#header button{
+    height: 30px;
+    width:80px;
+    font-size: 20px;
+}
+
+#movieContainer{
+    min-height: 300px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+.individualMovieDiv{
+    height: auto;
+    width: 200px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(185, 164, 204);
+    transition: 300ms;
+    box-shadow: 2px 2px 10px black;
+}
+.individualMovieDiv:hover{
+    transform: scale(1.01);
+}
+.individualMovieDiv h2{
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+.individualMovieDiv h3{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+.img-div{
+    height: 85%;
+    width: 100%;
+
+}
+.img-div img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.main-container{
+    height: 100%;
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+}
+.first-child{
+    height: 100%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.first-child img{
+    height: 80%;
+    width: 80%;
+}
+.movie-details-div{
+    height: 100%;
+    width: 65%;
+    padding-top: 70px;
+    padding-right: 100px;
+    
+}
+#movieDetails{
+    display: flex;
+}
+.movie-details-div p{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.movie-details-div .actors{
+    margin-top: 10px;
+}
+.movie-details-div .language{
+    margin-top: 10px;
+}
