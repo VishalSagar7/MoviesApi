@@ -8,20 +8,23 @@
 body,html{
     height: 100%;
     width: 100%;
-    background-color: rgb(231, 187, 231);
+    background-color: rgb(168, 168, 250);
     
 }
 
 #header{
     height: 90px;
-    background-color: gray;
+    /* background-color: gray; */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(185, 164, 204);
+    background-color: #032541;
     display: flex;
     justify-content: space-between;
     padding-inline: 100px;
+}
+#header h1{
+    color: white;
 }
 #header input{
     height: 30px;
@@ -31,7 +34,7 @@ body,html{
     outline: none;
 }
 #header input:focus{
-    outline: 2px solid violet;
+    outline: 1px solid violet;
 }
 #header input::placeholder{
     font-size: 15px;
