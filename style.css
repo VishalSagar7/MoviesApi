@@ -19,6 +19,9 @@ body,html{
     align-items: center;
     justify-content: center;
     background-color: rgb(185, 164, 204);
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 100px;
 }
 #header input{
     height: 30px;
